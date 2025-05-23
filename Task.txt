@@ -9,7 +9,13 @@
     - Autor: string
     - Ano de publicação: Tipo date só que só com anos (opcional)
     - Gênero: string (opcional)
+    - Removido: bool
 
+- Criar o DTO RequestBookUpdate
+    - Titulo: string (opcional)
+    - Autor: string (opcional)
+    - Ano de publicação: Tipo date só que só com anos (opcional)
+    - Gênero: string (opcional)
 
 - Criar o Model BookModel que extende de BookBaseDTO
         - Id: Guid
@@ -20,7 +26,7 @@
 
     - Criar o handler RegisterBookHandler
         - Ele espera receber RegisterBookCommand e retorna um GUID
-        - Ele gera um Guid que será o id
+        - Ele gera um Guid que será o id e o Removed como false
         - E faz a persistencia dos dados
         - Tem que ter o try/catch
     
@@ -36,11 +42,12 @@
             - Autor: string (opcional)
             - Ano de publicação: Tipo date só que só com anos (opcional)
             - Gênero: string (opcional)
-            - Id (Guid)
+            - Id: Guid (Obrigatorio)
 
-    - Criar o handler EditBookHandler
+    - Criar o handler EditBookCommandHandler
         - Ele espera receber EditBookCommand
         - Tre o try/catch para erros ou para caso não encontre o dado a ser atualizado
+            - Criterio de busca é o id e o Removed sendo false
         - Ele valida quais campos são atualizados (Ver a boa pratica de atualizar somente os dados enviados em c#) e atualiza eles
         - E faz a persistencia dos dados 
 
@@ -54,8 +61,25 @@
         - Ele pesquisa usando o ID para identificar o book e retorna ele
         - Se não encontrar, trata como erro
 
-    - Controller (put (/edit))
-        - Espera receber do tipo EditBookCommand
-        - Usando o MediatR tenho que passar o request de EditBookCommand para o handler certo EditBookHandler
+    - Controller (put (/edit/${id}))
+        - Espera receber do tipo RequestBookUpdate e o id por param
+        - Cria um objeto do tipo EditBookCommand passando os dados da request e o id recebido por param
+        - Usando o MediatR tenho que passar o objeto do tipo EditBookCommand para o handler certo EditBookHandler
         - Após isso usando o MediatR tenho que passar o param id de GetBookQuery para o handler certo GetBookQuery
         - Ocorrendo tudo certo retorna um estado 200 de ok
+
+- Funcionalidade excluir um livro
+    - Criar command RemoveBookCommand
+        - Atributos    
+            - Id (Guid)
+
+    - Criar o handler RemoveBookCommandHandler
+        - Ele espera receber RemoveBookCommand
+        - Ele pesquisa usando o ID para identificar o book e se o removed está false, e alterar o Removed para True
+        - Se não encontrar, trata como erro
+
+    - Controller (put (/remove/${id}))
+        - Espera o id por param
+        - Usando o MediatR tenho que passar o id do tipo RemoveBookCommand para o handler certo RemoveBookCommandHandler
+        - Ocorrendo tudo certo retorna um estado 200 de ok
+
