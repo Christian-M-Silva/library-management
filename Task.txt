@@ -1,0 +1,61 @@
+- Iniciar e configurar API .net mais recente
+
+- Estruturar as pastas usando CQRS 
+
+- Instalar e configurar o MediatR
+
+- Criar o DTO BookBaseDTO
+    - Titulo: string
+    - Autor: string
+    - Ano de publicação: Tipo date só que só com anos (opcional)
+    - Gênero: string (opcional)
+
+
+- Criar o Model BookModel que extende de BookBaseDTO
+        - Id: Guid
+
+- Funcionalidade cadastrar livro
+    - Criar command RegisterBookCommand que herda o BookBaseDTO
+        -Retornar um GUID
+
+    - Criar o handler RegisterBookHandler
+        - Ele espera receber RegisterBookCommand e retorna um GUID
+        - Ele gera um Guid que será o id
+        - E faz a persistencia dos dados
+        - Tem que ter o try/catch
+    
+    - Controller (post (/register))
+        - Espera receber do tipo RegisterBookCommand
+        - Usando o MediatR tenho que passar o request para o handler certo
+        - Ocorrendo tudo certo retorna um estado 201 de created
+
+- Funcionalidade editar livro
+    - Criar command EditBookCommand
+        - Atributos    
+            - Titulo: string (opcional)
+            - Autor: string (opcional)
+            - Ano de publicação: Tipo date só que só com anos (opcional)
+            - Gênero: string (opcional)
+            - Id (Guid)
+
+    - Criar o handler EditBookHandler
+        - Ele espera receber EditBookCommand
+        - Tre o try/catch para erros ou para caso não encontre o dado a ser atualizado
+        - Ele valida quais campos são atualizados (Ver a boa pratica de atualizar somente os dados enviados em c#) e atualiza eles
+        - E faz a persistencia dos dados 
+
+    - Criar query GetBookQuery
+        - Retorna BookModel
+        - Atributos    
+            - Id (Guid)
+
+    - Criar o handler GetBookQueryHandler
+        - Ele espera receber GetBookQuery e retorna um BookModel
+        - Ele pesquisa usando o ID para identificar o book e retorna ele
+        - Se não encontrar, trata como erro
+
+    - Controller (put (/edit))
+        - Espera receber do tipo EditBookCommand
+        - Usando o MediatR tenho que passar o request de EditBookCommand para o handler certo EditBookHandler
+        - Após isso usando o MediatR tenho que passar o param id de GetBookQuery para o handler certo GetBookQuery
+        - Ocorrendo tudo certo retorna um estado 200 de ok
