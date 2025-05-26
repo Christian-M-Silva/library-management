@@ -2,7 +2,7 @@ x Iniciar e configurar API .net mais recente
 
 x Estruturar as pastas usando CQRS 
 
-- Instalar e configurar o MediatR
+x Instalar e configurar o MediatR
 
 - Criar o DTO BookBaseDTO
     - Titulo: string
