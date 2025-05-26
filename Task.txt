@@ -100,3 +100,21 @@
         - Usando o MediatR tenho que o tipo ListAllBookQuery para o handler certo ListAllBookQueryHandler
         - Ocorrendo tudo certo retorna um estado 200 de ok
         - Aqui no try/cacth se der erro retorna erro generico
+
+- Funcionalidade de buscar um livro pelo id
+    - Criar query getBookByIdQuery
+        - Retorna BookModel
+        - Atributos    
+            - Id (Guid)
+
+    - Criar handler getBookByIdQueryHandler
+        - Ele espera receber getBookByIdQuery e retorna BookModel
+        - Ele pesquisa usando o ID para identificar o book e se o removed está false
+        - Tem que ter try/catch
+        - Se não encontrar, lança uma exception customizada de não encontrada
+
+    - Controller (get (/${id}))
+        - Espera o id por param
+        - Usando o MediatR tenho que passar o id do tipo getBookByIdQuery para o handler certo getBookByIdQueryHandler
+        - Ocorrendo tudo certo retorna um estado 200 de ok
+        - Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
