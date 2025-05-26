@@ -22,9 +22,9 @@ x Criar a Entity BookEntity que extende de BookBaseDTO
 
 x Criar uma exception customizada de não encontrado o dado
 
-- Instlaar EF e configurar o sqlite
+x Instlaar EF e configurar o sqlite
 
-- Configurar a geração do id e do updateAt
+x Configurar a geração do id e do updateAt
 
 - Funcionalidade cadastrar livro
     - Criar command RegisterBookCommand que herda o BookBaseDTO
