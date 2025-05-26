@@ -22,6 +22,8 @@
 
 - Criar uma exception customizada de não encontrado o dado
 
+- Instlaar EF e configurar o sqlite
+
 - Funcionalidade cadastrar livro
     - Criar command RegisterBookCommand que herda o BookBaseDTO
         -Retornar um GUID
@@ -118,3 +120,5 @@
         - Usando o MediatR tenho que passar o id do tipo getBookByIdQuery para o handler certo getBookByIdQueryHandler
         - Ocorrendo tudo certo retorna um estado 200 de ok
         - Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
+
+- Adicionar swagger
