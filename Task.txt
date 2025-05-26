@@ -20,6 +20,8 @@
 - Criar o Model BookModel que extende de BookBaseDTO
         - Id: Guid
 
+- Criar uma exception customizada de não encontrado o dado
+
 - Funcionalidade cadastrar livro
     - Criar command RegisterBookCommand que herda o BookBaseDTO
         -Retornar um GUID
@@ -59,7 +61,8 @@
     - Criar o handler GetBookQueryHandler
         - Ele espera receber GetBookQuery e retorna um BookModel
         - Ele pesquisa usando o ID para identificar o book e retorna ele
-        - Se não encontrar, trata como erro
+        - Tem que ter try/catch
+        - Se não encontrar, lança uma exception customizada de não encontrada
 
     - Controller (put (/edit/${id}))
         - Espera receber do tipo RequestBookUpdate e o id por param
@@ -67,6 +70,7 @@
         - Usando o MediatR tenho que passar o objeto do tipo EditBookCommand para o handler certo EditBookHandler
         - Após isso usando o MediatR tenho que passar o param id de GetBookQuery para o handler certo GetBookQuery
         - Ocorrendo tudo certo retorna um estado 200 de ok
+        - Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
 - Funcionalidade excluir um livro
     - Criar command RemoveBookCommand
@@ -76,10 +80,23 @@
     - Criar o handler RemoveBookCommandHandler
         - Ele espera receber RemoveBookCommand
         - Ele pesquisa usando o ID para identificar o book e se o removed está false, e alterar o Removed para True
-        - Se não encontrar, trata como erro
+        - Tem que ter try/catch
+        - Se não encontrar, lança uma exception customizada de não encontrada
 
     - Controller (put (/remove/${id}))
         - Espera o id por param
         - Usando o MediatR tenho que passar o id do tipo RemoveBookCommand para o handler certo RemoveBookCommandHandler
         - Ocorrendo tudo certo retorna um estado 200 de ok
+        - Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
+
+- Funcionalidade listar todos livros
+    - Criar Query ListAllBookQuery
+
+    - Criar o handler ListAllBookQueryHandler
+        - Ele pesquisa todos books que o removed está false
+
+    - Controller (get (/list/all))
+        - Usando o MediatR tenho que o tipo ListAllBookQuery para o handler certo ListAllBookQueryHandler
+        - Ocorrendo tudo certo retorna um estado 200 de ok
+        - Aqui no try/cacth se der erro retorna erro generico
