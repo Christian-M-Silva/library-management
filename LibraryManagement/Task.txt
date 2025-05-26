@@ -11,11 +11,11 @@ x Criar o DTO BookBaseDTO
     x Gênero: string (opcional)
     x Removido: bool
 
-- Criar o DTO RequestBookUpdate
-    - Titulo: string (opcional)
-    - Autor: string (opcional)
-    - Ano de publicação: Tipo date só que só com anos (opcional)
-    - Gênero: string (opcional)
+x Criar Model de request RequestBookUpdate
+    x Titulo: string (opcional)
+    x Autor: string (opcional)
+    x Ano de publicação: Tipo date só que só com anos (opcional)
+    x Gênero: string (opcional)
 
 - Criar o Model BookModel que extende de BookBaseDTO
         - Id: Guid
