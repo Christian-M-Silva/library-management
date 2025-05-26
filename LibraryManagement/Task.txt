@@ -17,12 +17,14 @@ x Criar Model de request RequestBookUpdate
     x Ano de publicação: Tipo date só que só com anos (opcional)
     x Gênero: string (opcional)
 
-- Criar o Model BookModel que extende de BookBaseDTO
-        - Id: Guid
+x Criar a Entity BookEntity que extende de BookBaseDTO
+        x Id: Guid
 
 - Criar uma exception customizada de não encontrado o dado
 
 - Instlaar EF e configurar o sqlite
+
+- Configurar a geração do id e do updateAt
 
 - Funcionalidade cadastrar livro
     - Criar command RegisterBookCommand que herda o BookBaseDTO
