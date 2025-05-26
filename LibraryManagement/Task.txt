@@ -1,6 +1,6 @@
 x Iniciar e configurar API .net mais recente
 
-- Estruturar as pastas usando CQRS 
+x Estruturar as pastas usando CQRS 
 
 - Instalar e configurar o MediatR
 
@@ -28,7 +28,7 @@ x Iniciar e configurar API .net mais recente
     - Criar command RegisterBookCommand que herda o BookBaseDTO
         -Retornar um GUID
 
-    - Criar o handler RegisterBookHandler
+    - Criar o handler RegisterBookCommandHandler
         - Ele espera receber RegisterBookCommand e retorna um GUID
         - Ele gera um Guid que será o id e o Removed como false
         - E faz a persistencia dos dados
