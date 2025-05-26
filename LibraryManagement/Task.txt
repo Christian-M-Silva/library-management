@@ -20,7 +20,7 @@ x Criar Model de request RequestBookUpdate
 x Criar a Entity BookEntity que extende de BookBaseDTO
         x Id: Guid
 
-- Criar uma exception customizada de não encontrado o dado
+x Criar uma exception customizada de não encontrado o dado
 
 - Instlaar EF e configurar o sqlite
 
