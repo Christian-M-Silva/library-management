@@ -1,4 +1,4 @@
-- Iniciar e configurar API .net mais recente
+x Iniciar e configurar API .net mais recente
 
 - Estruturar as pastas usando CQRS 
 
