@@ -4,12 +4,12 @@ x Estruturar as pastas usando CQRS
 
 x Instalar e configurar o MediatR
 
-- Criar o DTO BookBaseDTO
-    - Titulo: string
-    - Autor: string
-    - Ano de publicação: Tipo date só que só com anos (opcional)
-    - Gênero: string (opcional)
-    - Removido: bool
+x Criar o DTO BookBaseDTO
+    x Titulo: string
+    x Autor: string
+    x Ano de publicação: Tipo date só que só com anos (opcional)
+    x Gênero: string (opcional)
+    x Removido: bool
 
 - Criar o DTO RequestBookUpdate
     - Titulo: string (opcional)
