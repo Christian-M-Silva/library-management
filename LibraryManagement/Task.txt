@@ -26,9 +26,9 @@ x Instlaar EF e configurar o sqlite
 
 x Configurar a geração do id e do updateAt
 
-- Funcionalidade cadastrar livro
-    - Criar command RegisterBookCommand que herda o BookBaseDTO
-        -Retornar um GUID
+x Funcionalidade cadastrar livro
+    x Criar command RegisterBookCommand que herda o BookBaseDTO
+        x Retornar um GUID
 
     - Criar o handler RegisterBookCommandHandler
         - Ele espera receber RegisterBookCommand e retorna um GUID
