@@ -30,11 +30,11 @@ x Funcionalidade cadastrar livro
     x Criar command RegisterBookCommand que herda o BookBaseDTO
         x Retornar um GUID
 
-    - Criar o handler RegisterBookCommandHandler
-        - Ele espera receber RegisterBookCommand e retorna um GUID
-        - Ele gera um Guid que será o id e o Removed como false
-        - E faz a persistencia dos dados
-        - Tem que ter o try/catch
+    x Criar o handler RegisterBookCommandHandler
+        x Ele espera receber RegisterBookCommand e retorna um GUID
+        x Ele gera um Guid que será o id e o Removed como false
+        x E faz a persistencia dos dados
+        x Tem que ter o try/catch
     
     - Controller (post (/register))
         - Espera receber do tipo RegisterBookCommand
