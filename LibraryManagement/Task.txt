@@ -36,10 +36,10 @@ x Funcionalidade cadastrar livro
         x E faz a persistencia dos dados
         x Tem que ter o try/catch
     
-    - Controller (post (/register))
-        - Espera receber do tipo RegisterBookCommand
-        - Usando o MediatR tenho que passar o request para o handler certo
-        - Ocorrendo tudo certo retorna um estado 201 de created
+    x Controller (post (/register))
+        x Espera receber do tipo RegisterBookCommand
+        x Usando o MediatR tenho que passar o request para o handler certo
+        x Ocorrendo tudo certo retorna um estado 201 de created
 
 - Funcionalidade editar livro
     - Criar command EditBookCommand
