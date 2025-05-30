@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MediatR;
+using System.ComponentModel.DataAnnotations;
 
 namespace LibraryManagement.Commands
 {
-    public class EditBookCommand
+    public class EditBookCommand:IRequest
     {
         public string? Title { get; set; }
         public string? Author { get; set; }

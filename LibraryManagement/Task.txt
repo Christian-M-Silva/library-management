@@ -50,12 +50,13 @@ x Funcionalidade editar livro
             x Gênero: string (opcional)
             x Id: Guid (Obrigatorio)
 
-    - Criar o handler EditBookCommandHandler
-        - Ele espera receber EditBookCommand
-        - Tre o try/catch para erros ou para caso não encontre o dado a ser atualizado
-            - Criterio de busca é o id e o Removed sendo false
-        - Ele valida quais campos são atualizados (Ver a boa pratica de atualizar somente os dados enviados em c#) e atualiza eles
-        - E faz a persistencia dos dados 
+    x Criar o handler EditBookCommandHandler
+        x Ele espera receber EditBookCommand
+        x Tre o try/catch para erros ou para caso não encontre o dado a ser atualizado
+            x Criterio de busca é o id e o Removed sendo false
+                x Se não encontrar, lança uma exception customizada de não encontrada
+        x Ele valida quais campos são atualizados (Ver a boa pratica de atualizar somente os dados enviados em c#) e atualiza eles
+        x E faz a persistencia dos dados 
 
     - Criar query GetBookQuery
         - Retorna BookModel
