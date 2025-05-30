@@ -41,14 +41,14 @@ x Funcionalidade cadastrar livro
         x Usando o MediatR tenho que passar o request para o handler certo
         x Ocorrendo tudo certo retorna um estado 201 de created
 
-- Funcionalidade editar livro
-    - Criar command EditBookCommand
-        - Atributos    
-            - Titulo: string (opcional)
-            - Autor: string (opcional)
-            - Ano de publicação: Tipo date só que só com anos (opcional)
-            - Gênero: string (opcional)
-            - Id: Guid (Obrigatorio)
+x Funcionalidade editar livro
+    x Criar command EditBookCommand
+        x Atributos    
+            x Titulo: string (opcional)
+            x Autor: string (opcional)
+            x Ano de publicação: Tipo date só que só com anos (opcional)
+            x Gênero: string (opcional)
+            x Id: Guid (Obrigatorio)
 
     - Criar o handler EditBookCommandHandler
         - Ele espera receber EditBookCommand
