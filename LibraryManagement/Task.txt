@@ -77,16 +77,16 @@ x Funcionalidade editar livro
         x Ocorrendo tudo certo retorna um estado 200 de ok
         x Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
-- Funcionalidade excluir um livro
-    - Criar command RemoveBookCommand
-        - Atributos    
-            - Id (Guid)
+x Funcionalidade excluir um livro
+    x Criar command RemoveBookCommand
+        x Atributos    
+            x Id (Guid)
 
-    - Criar o handler RemoveBookCommandHandler
-        - Ele espera receber RemoveBookCommand
-        - Ele pesquisa usando o ID para identificar o book e se o removed está false, e alterar o Removed para True
-        - Tem que ter try/catch
-        - Se não encontrar, lança uma exception customizada de não encontrada
+    X Criar o handler RemoveBookCommandHandler
+        X Ele espera receber RemoveBookCommand
+        x Ele pesquisa usando o ID para identificar o book e se o removed está false, e alterar o Removed para True
+        x Tem que ter try/catch
+        x Se não encontrar, lança uma exception customizada de não encontrada
 
     - Controller (put (/remove/${id}))
         - Espera o id por param
