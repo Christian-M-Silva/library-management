@@ -69,13 +69,13 @@ x Funcionalidade editar livro
         x Tem que ter try/catch
         x Se não encontrar, lança uma exception customizada de não encontrada
 
-    - Controller (put (/edit/${id}))
-        - Espera receber do tipo RequestBookUpdate e o id por param
-        - Cria um objeto do tipo EditBookCommand passando os dados da request e o id recebido por param
-        - Usando o MediatR tenho que passar o objeto do tipo EditBookCommand para o handler certo EditBookHandler
-        - Após isso usando o MediatR tenho que passar o param id de GetBookQuery para o handler certo GetBookQuery
-        - Ocorrendo tudo certo retorna um estado 200 de ok
-        - Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
+    x Controller (put (/edit/${id}))
+        x Espera receber do tipo RequestBookUpdate e o id por param
+        x Cria um objeto do tipo EditBookCommand passando os dados da request e o id recebido por param
+        x Usando o MediatR tenho que passar o objeto do tipo EditBookCommand para o handler certo EditBookHandler
+        x Após isso usando o MediatR tenho que passar o param id de GetBookQuery para o handler certo GetBookQuery
+        x Ocorrendo tudo certo retorna um estado 200 de ok
+        x Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
 - Funcionalidade excluir um livro
     - Criar command RemoveBookCommand

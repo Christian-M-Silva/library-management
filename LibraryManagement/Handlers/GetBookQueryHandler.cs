@@ -15,7 +15,7 @@ namespace LibraryManagement.Handlers
             {
                 BookEntity? book = await _dbContext.Books.FirstOrDefaultAsync(bookEntity => bookEntity.Id == request.Id, cancellationToken: cancellationToken);
 
-                return book ?? throw new NotFoundException("book not found");
+                return book ?? throw new NotFoundException();
             }
             catch (Exception err)
             {

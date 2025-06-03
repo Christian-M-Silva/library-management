@@ -16,7 +16,7 @@ namespace LibraryManagement.Handlers
 				BookEntity? bookEntity = await _dbContext.Books.FirstOrDefaultAsync(book => book.Id == request.Id && book.IsRemoved == false, cancellationToken: cancellationToken);
                 if (bookEntity == null)
                 {
-                    throw new NotFoundException("book not found");
+                    throw new NotFoundException();
                 }
 
                 if (request.PublishYear is int year)
