@@ -58,16 +58,16 @@ x Funcionalidade editar livro
         x Ele valida quais campos são atualizados (Ver a boa pratica de atualizar somente os dados enviados em c#) e atualiza eles
         x E faz a persistencia dos dados 
 
-    - Criar query GetBookQuery
-        - Retorna BookModel
-        - Atributos    
-            - Id (Guid)
+    x Criar query GetBookQuery
+        x Retorna BookModel
+        x Atributos    
+            x Id (Guid)
 
-    - Criar o handler GetBookQueryHandler
-        - Ele espera receber GetBookQuery e retorna um BookModel
-        - Ele pesquisa usando o ID para identificar o book e retorna ele
-        - Tem que ter try/catch
-        - Se não encontrar, lança uma exception customizada de não encontrada
+    x Criar o handler GetBookQueryHandler
+        x Ele espera receber GetBookQuery e retorna um BookModel
+        x Ele pesquisa usando o ID para identificar o book e retorna ele
+        x Tem que ter try/catch
+        x Se não encontrar, lança uma exception customizada de não encontrada
 
     - Controller (put (/edit/${id}))
         - Espera receber do tipo RequestBookUpdate e o id por param
