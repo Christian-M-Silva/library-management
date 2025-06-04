@@ -96,13 +96,14 @@ x Funcionalidade excluir um livro
 
 
 - Funcionalidade listar todos livros
-    - Criar Query ListAllBookQuery
+    - Na Query GetBookQuery deixar o ID passivel ao null
 
-    - Criar o handler ListAllBookQueryHandler
-        - Ele pesquisa todos books que o removed está false
+    - No handler GetBookQueryHandler
+        - De açguma forma tenho que ver, se o request.id for null, então ele tras todos, do contrario faz o que já está fazendo, posso ver se consigo faezr essa validação dentro do FirstOrDefaultAsync
+        - Add a pesquisa todos books que o removed está false
 
     - Controller (get (/list/all))
-        - Usando o MediatR tenho que o tipo ListAllBookQuery para o handler certo ListAllBookQueryHandler
+        - Usando o MediatR tenho que passar o tipo GetBookQuery para o handler certo GetBookQueryHandler
         - Ocorrendo tudo certo retorna um estado 200 de ok
         - Aqui no try/cacth se der erro retorna erro generico
 
