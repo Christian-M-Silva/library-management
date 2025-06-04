@@ -88,11 +88,11 @@ x Funcionalidade excluir um livro
         x Tem que ter try/catch
         x Se não encontrar, lança uma exception customizada de não encontrada
 
-    - Controller (put (/remove/${id}))
-        - Espera o id por param
-        - Usando o MediatR tenho que passar o id do tipo RemoveBookCommand para o handler certo RemoveBookCommandHandler
-        - Ocorrendo tudo certo retorna um estado 200 de ok
-        - Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
+    x Controller (put (/remove/${id}))
+        x Espera o id por param
+        x Usando o MediatR tenho que passar o id do tipo RemoveBookCommand para o handler certo RemoveBookCommandHandler
+        x Ocorrendo tudo certo retorna um estado 200 de ok
+        x Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
 
 - Funcionalidade listar todos livros

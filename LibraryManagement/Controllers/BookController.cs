@@ -16,7 +16,6 @@ namespace LibraryManagement.Controllers
         private readonly IMediator _mediator = mediator;
 
         [HttpPost("register")]
-
         public async Task<IActionResult> RegisterBook(RegisterBookCommand requestBook) {
 
             try
@@ -31,7 +30,6 @@ namespace LibraryManagement.Controllers
         }
 
         [HttpPut("edit/{id}")]
-
         public async Task<IActionResult> EditBook(RequestBookUpdate body, Guid id)
         {
             try
@@ -50,6 +48,24 @@ namespace LibraryManagement.Controllers
                 BookEntity book = await _mediator.Send(new GetBookQuery() { Id = id});
 
                 return Ok(book);
+            }
+            catch (NotFoundException)
+            {
+                return NotFound("Book not found");
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPut("remove/{id}")]
+        public async Task<IActionResult> RemoveBook(Guid id)
+        {
+            try
+            {
+                await _mediator.Send(new RemoveBookCommand() { Id = id});
+                return Ok();
             }
             catch (NotFoundException)
             {
