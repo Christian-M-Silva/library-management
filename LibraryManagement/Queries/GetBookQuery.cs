@@ -3,8 +3,8 @@ using MediatR;
 
 namespace LibraryManagement.Queries
 {
-    public class GetBookQuery: IRequest<BookEntity>
+    public class GetBookQuery: IRequest<List<BookEntity>>
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
     }
 }

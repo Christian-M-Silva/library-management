@@ -6,14 +6,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagement.Handlers
 {
-    public class GetBookQueryHandler(MyDbContext dbContext) : IRequestHandler<GetBookQuery, BookEntity>
+    public class GetBookQueryHandler(MyDbContext dbContext) : IRequestHandler<GetBookQuery, List<BookEntity>>
     {
         private readonly MyDbContext _dbContext = dbContext;
-        public async Task<BookEntity> Handle(GetBookQuery request, CancellationToken cancellationToken)
+        public async Task<List<BookEntity>> Handle(GetBookQuery request, CancellationToken cancellationToken)
         {
             try
             {
-                BookEntity? book = await _dbContext.Books.FirstOrDefaultAsync(bookEntity => bookEntity.Id == request.Id, cancellationToken: cancellationToken);
+                var query = _dbContext.Books.Where(b => b.IsRemoved == false);
+
+                if (request.Id is not null)
+                {
+                    query = query.Where(b => b.Id == request.Id);
+                }
+                List<BookEntity> book = await query.ToListAsync(cancellationToken: cancellationToken);
 
                 return book ?? throw new NotFoundException();
             }

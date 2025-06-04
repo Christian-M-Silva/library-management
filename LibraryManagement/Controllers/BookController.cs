@@ -45,7 +45,7 @@ namespace LibraryManagement.Controllers
 
                 await _mediator.Send(editBookCommand);
 
-                BookEntity book = await _mediator.Send(new GetBookQuery() { Id = id});
+                List<BookEntity> book = await _mediator.Send(new GetBookQuery() { Id = id});
 
                 return Ok(book);
             }
@@ -65,6 +65,42 @@ namespace LibraryManagement.Controllers
             try
             {
                 await _mediator.Send(new RemoveBookCommand() { Id = id});
+                return Ok();
+            }
+            catch (NotFoundException)
+            {
+                return NotFound("Book not found");
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpGet ("list/all")]
+        public async Task<IActionResult> ListAll()
+        {
+            try
+            {
+                await _mediator.Send(new GetBookQuery());
+                return Ok();
+            }
+            catch (NotFoundException)
+            {
+                return NotFound("Book not found");
+            }
+            catch (Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ListAll(Guid id)
+        {
+            try
+            {
+                await _mediator.Send(new GetBookQuery() { Id = id});
                 return Ok();
             }
             catch (NotFoundException)

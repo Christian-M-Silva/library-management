@@ -95,23 +95,23 @@ x Funcionalidade excluir um livro
         x Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
 
-- Funcionalidade listar todos livros
-    - Na Query GetBookQuery deixar o ID passivel ao null
+x Funcionalidade listar todos livros
+    x Na Query GetBookQuery deixar o ID passivel ao null
 
-    - No handler GetBookQueryHandler
-        - De açguma forma tenho que ver, se o request.id for null, então ele tras todos, do contrario faz o que já está fazendo, posso ver se consigo faezr essa validação dentro do FirstOrDefaultAsync
-        - Add a pesquisa todos books que o removed está false
+    x No handler GetBookQueryHandler
+        x De alguma forma tenho que ver, se o request.id for null, então ele tras todos, do contrario faz o que já está fazendo, posso ver se consigo faezr essa validação dentro do FirstOrDefaultAsync
+        x Add a pesquisa todos books que o removed está false
 
-    - Controller (get (/list/all))
-        - Usando o MediatR tenho que passar o tipo GetBookQuery para o handler certo GetBookQueryHandler
-        - Ocorrendo tudo certo retorna um estado 200 de ok
-        - Aqui no try/cacth se der erro retorna erro generico
+    x Controller (get (/list/all))
+        x Usando o MediatR tenho que passar o tipo GetBookQuery para o handler certo GetBookQueryHandler
+        x Ocorrendo tudo certo retorna um estado 200 de ok
+        x Aqui no try/cacth se der erro retorna erro generico
 
-- Funcionalidade de buscar um livro pelo id
-    - Controller (get (/${id}))
-        - Espera o id por param
-        - Usando o MediatR tenho que passar o id do tipo GetBookQuery para o handler certo GetBookQueryHandler
-        - Ocorrendo tudo certo retorna um estado 200 de ok
-        - Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
+x Funcionalidade de buscar um livro pelo id
+    x Controller (get (/${id}))
+        x Espera o id por param
+        x Usando o MediatR tenho que passar o id do tipo GetBookQuery para o handler certo GetBookQueryHandler
+        x Ocorrendo tudo certo retorna um estado 200 de ok
+        x Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
 - Adicionar swagger
