@@ -114,4 +114,4 @@ x Funcionalidade de buscar um livro pelo id
         x Ocorrendo tudo certo retorna um estado 200 de ok
         x Aqui no try/cacth se cair na exception de não ter encontrado ai retorna NotFound do contrario um qualquer
 
-- Adicionar swagger
+x Adicionar swagger

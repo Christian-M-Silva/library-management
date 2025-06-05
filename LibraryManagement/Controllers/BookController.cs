@@ -82,8 +82,8 @@ namespace LibraryManagement.Controllers
         {
             try
             {
-                await _mediator.Send(new GetBookQuery());
-                return Ok();
+                List<BookEntity> books = await _mediator.Send(new GetBookQuery());
+                return Ok(books);
             }
             catch (NotFoundException)
             {
@@ -100,8 +100,8 @@ namespace LibraryManagement.Controllers
         {
             try
             {
-                await _mediator.Send(new GetBookQuery() { Id = id});
-                return Ok();
+                List<BookEntity> book = await _mediator.Send(new GetBookQuery() { Id = id});
+                return Ok(book);
             }
             catch (NotFoundException)
             {
